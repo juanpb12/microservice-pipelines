@@ -19,19 +19,6 @@ def createDeploymentJob(jobName, repoUrl) {
     }
 }
 
-def createTestJob(jobName, repoUrl) {
-    multibranchPipelineJob(jobName) {
-        branchSources {
-            git {
-                remote(repoUrl)
-                includes('*')
-            }
-        }
-        triggers {
-            cron("H/5 * * * *")
-        }
-    }
-}
 
 def buildPipelineJobs() {
     def repo = "https://github.com/kcrane3576/"
@@ -40,7 +27,7 @@ def buildPipelineJobs() {
     def testName = jobName + "_test"
 
     createDeploymentJob(deployName, repoUrl)
-    createTestJob(testName, repoUrl)
+
 }
 
 buildPipelineJobs()
