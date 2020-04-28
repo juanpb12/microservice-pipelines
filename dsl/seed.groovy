@@ -37,7 +37,7 @@ def createDeploymentJob(jobName, repoUrl) {
 
 def buildPipelineJobs() {
 
-    def repoUrl =  "https://github.com/juanpb12/docker-poc.git"
+    def repoUrl =  repo
     def deployName = jobName 
 
 
