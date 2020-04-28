@@ -17,6 +17,9 @@ def createDeploymentJob(jobName, repoUrl) {
                 }
             }
         }
+        
+        authenticationToken('66829b0aaf22638f8094947e6cdc8188')
+        
         triggers {
             
             // Trigger that runs jobs on push notifications from GitLab.
