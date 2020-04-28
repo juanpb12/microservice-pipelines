@@ -21,8 +21,6 @@ def createDeploymentJob(jobName, repoUrl, jobDescription) {
             }
         }
         
-        authenticationToken('66829b0aaf22638f8094947e6cdc8188')
-        
         triggers {
             
             gitlab {
