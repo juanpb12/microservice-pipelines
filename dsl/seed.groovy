@@ -1,4 +1,4 @@
-def createDeploymentJob(jobName, repoUrl) {
+def createDeploymentJob(jobName, repoUrl, jobDescription) {
     pipelineJob(jobName) {
         
         description(jobDescription)
