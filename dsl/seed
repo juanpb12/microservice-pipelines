@@ -19,18 +19,11 @@ createTestingJob(pipelineName, repoUrl) {
                 }
                 scriptPath("Jenkinsfile")
                     
-                }
             }
         }
-            
-        triggers {
-            //Comment
-            //scm('H/5 * * * *') 
-        }
-        
-        
     }
 }
+
 
 def buildPipelineJobs() {
     
