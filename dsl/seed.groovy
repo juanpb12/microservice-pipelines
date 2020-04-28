@@ -7,7 +7,7 @@ def createDeploymentJob(jobName, repoUrl) {
                         remote {
                             url(repoUrl)
                         }
-                        branches('master')
+                        branches('testing')
                         extensions {
                             cleanBeforeCheckout()
                         }
@@ -21,8 +21,8 @@ def createDeploymentJob(jobName, repoUrl) {
 
 
 def buildPipelineJobs() {
-    def repo = "https://github.com/kcrane3576/"
-    def repoUrl = repo + jobName + ".git"
+
+    def repoUrl =  "https://github.com/juanpb12/docker-poc.git"
     def deployName = jobName 
 
 
