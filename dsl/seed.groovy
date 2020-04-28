@@ -16,6 +16,18 @@ def createDeploymentJob(jobName, repoUrl) {
                 scriptPath("Jenkinsfile")
             }
         }
+        
+        triggers {
+            
+            // Trigger that runs jobs on push notifications from GitLab.
+            gitlabPush {
+
+                // If set, builds on push events request events.
+                buildOnPushEvents()
+               
+            }
+        }
+        
     }
 }
 
@@ -27,6 +39,17 @@ def buildPipelineJobs() {
 
 
     createDeploymentJob(deployName, repoUrl)
+
+}
+
+buildPipelineJobs()
+
+    
+    def repo = "https://git:80/juanpb12/"
+    def repoUrl = repo + "docker-poc" + ".git"
+    def deployName = pipelineName
+
+    createTestingJob(deployName, repoUrl)
 
 }
 
