@@ -1,5 +1,8 @@
 def createDeploymentJob(jobName, repoUrl) {
     pipelineJob(jobName) {
+        
+        description(jobDescription)
+        
         definition {
             cpsScm {
                 scm {
@@ -39,9 +42,9 @@ def buildPipelineJobs() {
 
     def repoUrl =  repo
     def deployName = jobName 
+    def jobDescription = Descipcion
 
-
-    createDeploymentJob(deployName, repoUrl)
+    createDeploymentJob(deployName, repoUrl, jobDescription)
 
 }
 
