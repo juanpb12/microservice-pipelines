@@ -1,0 +1,45 @@
+createTestingJob(pipelineName, repoUrl) {
+
+    pipelineJob(pipelineName) {
+        
+        description("Testing pipeline")
+        
+        definition {
+            cpsScm {
+                scm {
+                    git {
+                        remote {
+                            url(repoUrl)
+                        }
+                        branches('master')
+                        extensions {
+                            cleanBeforeCheckout()
+                        }
+                    }
+                }
+                scriptPath("Jenkinsfile")
+                    
+                }
+            }
+        }
+            
+        triggers {
+            //Comment
+            //scm('H/5 * * * *') 
+        }
+        
+        
+    }
+}
+
+def buildPipelineJobs() {
+    
+    def repo = "https://git:80/juanpb12/"
+    def repoUrl = repo + "docker-poc" + ".git"
+    def deployName = pipelineName
+
+    createTestingJob(deployName, repoUrl)
+
+}
+
+buildPipelineJobs()
