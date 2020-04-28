@@ -25,9 +25,12 @@ def createDeploymentJob(jobName, repoUrl, jobDescription) {
         
         triggers {
             
-            // Trigger that runs jobs on push notifications from GitLab.
+            gitlab {
+                secretToken('foo')
+            }
+            
             gitlabPush {
-
+                // Trigger that runs jobs on push notifications from GitLab.
                 // If set, builds on push events request events.
                 buildOnPushEvents()
                
