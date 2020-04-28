@@ -43,14 +43,3 @@ def buildPipelineJobs() {
 }
 
 buildPipelineJobs()
-
-    
-    def repo = "https://git:80/juanpb12/"
-    def repoUrl = repo + "docker-poc" + ".git"
-    def deployName = pipelineName
-
-    createTestingJob(deployName, repoUrl)
-
-}
-
-buildPipelineJobs()
