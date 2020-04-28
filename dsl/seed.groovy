@@ -11,12 +11,12 @@ def createDeploymentJob(jobName, repoUrl) {
                         extensions {
                             cleanBeforeCheckout()
                         }
+                    
                     }
-                }
                 scriptPath("Jenkinsfile")
+                }
             }
         }
-        
         triggers {
             
             // Trigger that runs jobs on push notifications from GitLab.
