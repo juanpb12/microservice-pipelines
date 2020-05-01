@@ -1,4 +1,4 @@
-def createDeploymentJob(jobName, repoUrl, jobDescription) {
+def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName) {
     pipelineJob(jobName) {
         
         description(jobDescription)
@@ -16,7 +16,7 @@ def createDeploymentJob(jobName, repoUrl, jobDescription) {
                         }
                     
                     }
-                scriptPath("Jenkinsfile")
+                scriptPath(jenkinsFileName)
                 }
             }
         }
@@ -44,8 +44,9 @@ def buildPipelineJobs() {
     def repoUrl =  repo
     def deployName = jobName 
     def jobDescription = Descipcion
+    def jenkinsFileName = jenkinsFileName
 
-    createDeploymentJob(deployName, repoUrl, jobDescription)
+    createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName)
 
 }
 
