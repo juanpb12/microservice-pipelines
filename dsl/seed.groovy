@@ -57,7 +57,7 @@ def buildPipelineJobs() {
     def jenkinsFileName = jenkinsFileName
     def credentials = git_credentials
     def token = tokenGenerator()
-
+    print(token)
 
     createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName, credentials)
 
