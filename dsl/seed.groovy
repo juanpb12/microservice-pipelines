@@ -25,7 +25,7 @@ def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred)
         triggers {
             
             gitlab {
-                secretToken('foo')
+                secretToken('7483bf1d951c4421a5947268c69f874b')
             }
             
             gitlabPush {
