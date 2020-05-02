@@ -25,6 +25,7 @@ def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred)
         triggers {
             
             gitlab {
+                //secret token for gitlab webhook
                 secretToken('7483bf1d951c4421a5947268c69f874b')
             }
             
