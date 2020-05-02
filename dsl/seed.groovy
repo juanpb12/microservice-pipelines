@@ -1,4 +1,4 @@
-def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName) {
+def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred) {
     pipelineJob(jobName) {
         
         description(jobDescription)
@@ -9,6 +9,7 @@ def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName) {
                     git {
                         remote {
                             url(repoUrl)
+                            credentials(cred)
                         }
                         branches('testing')
                         extensions {
@@ -45,8 +46,9 @@ def buildPipelineJobs() {
     def deployName = jobName 
     def jobDescription = Descipcion
     def jenkinsFileName = jenkinsFileName
+    def credentials = git_credentials
 
-    createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName)
+    createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName, credentials)
 
 }
 
