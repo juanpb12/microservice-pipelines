@@ -1,4 +1,4 @@
-def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred) {
+def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred, token) {
     pipelineJob(jobName) {
         
         description(jobDescription)
@@ -26,7 +26,7 @@ def createDeploymentJob(jobName, repoUrl, jobDescription, jenkinsFileName, cred)
             
             gitlab {
                 //secret token for gitlab webhook
-                secretToken('somestring')
+                secretToken(token)
             }
             
             gitlabPush {
@@ -57,9 +57,8 @@ def buildPipelineJobs() {
     def jenkinsFileName = jenkinsFileName
     def credentials = git_credentials
     def token = tokenGenerator()
-    print(token)
 
-    createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName, credentials)
+    createDeploymentJob(deployName, repoUrl, jobDescription, jenkinsFileName, credentials, token)
 
 }
 
